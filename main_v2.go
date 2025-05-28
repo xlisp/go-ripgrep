@@ -26,6 +26,7 @@ type Config struct {
 	hidden       bool
 	noHeading    bool
 	lineNumber   bool
+	globPath     string
 	withFilename bool
 	color        bool
 	ignoreCase   bool
@@ -47,6 +48,7 @@ func main() {
 	flag.BoolVar(&config.hidden, "hidden", false, "Search hidden files and directories")
 	flag.BoolVar(&config.noHeading, "no-heading", false, "Don't group matches by file")
 	flag.BoolVar(&config.lineNumber, "line-number", false, "Show line numbers")
+	flag.StringVar(&config.globPath, "glob", ".git", "TODO glob")
 	flag.BoolVar(&config.withFilename, "with-filename", false, "Show filename for each match")
 	flag.StringVar(&config.pattern, "pattern", "", "Search pattern")
 	flag.BoolVar(&config.ignoreCase, "ignore-case", false, "Case insensitive search")
@@ -347,6 +349,10 @@ func printMatch(filename string, lineNum int, line string, config Config) {
 			parts = append(parts, fmt.Sprintf("%d", lineNum))
 		}
 	}
+
+        // TODO
+        //if config.globPath {
+        //}
 	
 	// 高亮匹配的文本
 	displayLine := line
