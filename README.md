@@ -28,3 +28,12 @@ main.go:240:		result.WriteString(ColorRed + original + ColorReset)
 ...
 
 ```
+
+## Use in Emacs ripgrep
+
+![](./emacs_use.png)
+
+## Diff rg , ag , rg by rust
+
+![](./diff_rg_ag_rust-rg.png)
+
